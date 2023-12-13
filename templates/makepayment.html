@@ -1,0 +1,26 @@
+{% extends 'formnav.html' %}
+{% block content %}
+<div class="container text-light" >
+<form method="post" action="{% url 'payment' %}" class="w-75 mx-auto d-block">
+    {% csrf_token %}
+    <h2>Address details</h2>
+    <div class="form-group">
+        <label>Address</label>
+        <textarea class="form-control ">{{data.address}}</textarea>
+    </div>
+    <div class="form-group">
+      <label>locality</label>
+      <input type="text" value="{{data.locality}}" class="form-control ">
+  </div>
+  <div class="form-group">
+    <label>pin</label>
+    <input type="number" value="{{data.pin}}" class="form-control ">
+</div>
+    <div class="form-group">
+        <label>Total Amount</label>
+      <input type="text" value="{{tp}}" class="form-control" disabled >
+    </div>
+    <button type="submit" class="btn btn-primary">NEXT</button>
+</form>
+</div>
+{% endblock %}

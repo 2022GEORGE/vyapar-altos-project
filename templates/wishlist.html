@@ -1,0 +1,23 @@
+{% extends 'formnav.html' %}
+{% block content %}
+<div class="container " style="height:auto; " id="cart">
+<h1 class="text-light">Your Shopping Cart</h1>
+ 
+<div class="row " style="margin:50px;">
+    {% for i in data %}
+    <div class="col-lg-3  d-flex mx-auto d-block">
+        <div class="card w-auto my-2 shadow-2-strong ">
+          <img src="{{i.product.image.url}}" class="card-img-top" style="aspect-ratio: 1/ 1" />
+            <div class="card-body  flex-column">
+              <h5 class="card-title">{{i.product.description}}</h5>
+              <p class="card-text">&#8377;  {{i.product.price}}   <s>&#8377;{{i.product.tprice}}</s></p>
+            </div>
+                <div style="margin-top:8px; margin-bottom: 8px;" class="mx-auto d-block">
+                <a href="{% url 'wish_to_cart' i.product.id %}" class="btn btn-primary shadow-0 me-1">Add to cart</a>
+              </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

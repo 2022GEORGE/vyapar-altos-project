@@ -1,0 +1,32 @@
+{% extends 'formnav.html' %}
+{% block content %}
+<div class="container " style="height:auto; " id="cart">
+<h1 class="text-light">Your Shopping Cart</h1>
+ 
+<div class="row " >
+    {% for i in data %}
+    <div class="col-lg-3  d-flex mx-auto d-block">
+        <div class="card w-auto my-2 shadow-2-strong ">
+          <img src="{{i.product.image.url}}" class="card-img-top" style="aspect-ratio: 1/ 1" />
+            <div class="card-body  flex-column">
+              <h5 class="card-title">{{i.product.description}}-([{{i.quantity}}])</h5>
+              <p class="card-text">&#8377;  {{i.product.price}}   <s>&#8377;{{i.product.tprice}}</s></p>
+            </div>
+                <div style="margin-top:8px; margin-bottom: 8px;" class="mx-auto d-block">
+                <a href="{% url 'remove_from_cart' i.id %}" class="btn btn-primary shadow-0 me-1"><i class="fa-solid fa-trash"></i></a>
+                <a href="{% url 'add' i.id %}" ><button type="button" class="btn btn-primary"  ><i class="fa-solid fa-plus"></i></button>  </a>
+                <a href="{% url 'less' i.id %}"><button type="button" class="btn btn-danger"  ><i class="fa-solid fa-minus"></i></button> </a>
+              </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  {% if data  %}
+  <p style="color:rgb(252, 236, 14); " >Total Price:&nbsp;&nbsp;&nbsp;&#8377;{{data2}} </p>
+<p style="color: rgb(252, 249, 249); ">Offer Price:&nbsp;&nbsp;&nbsp;&#8377;{{data3}} </p>
+  <div class=" w-50 mx-auto d-block "style="margin-top:20px;" >
+<a href="{% url 'makepayment' %}"><button type="button" class="btn btn-primary form-control " style="margin-bottom:20px;">BUY</button></a>
+</div>
+{% endif %}
+</div>
+{% endblock %}

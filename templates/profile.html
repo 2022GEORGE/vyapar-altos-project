@@ -1,0 +1,21 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<div class="container" style="margin-top:10px; display:inline-block; float: left;">
+    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header"><i class="fa-solid fa-user"></i>  {{data.first_name}} {{data.last_name}}</div>
+        <div class="card-body">
+          <h5 class="card-title">Address</h5>
+          <p class="card-text">{{data2.address}}</p>
+        </div>
+      </div>
+      <div class="card text-white bg-primary mb-3" style="max-width: 18rem; height:50vh; display:inline-block" >
+        <div class="card-header" style="text-align: center;" ><a href="" style="text-decoration: none; color: black;">My cart</a>  </div>
+        <div class="card-header" style="text-align: center;" ><a href="" style="text-decoration: none; color: black;">My orders</a> </div>
+    </div>
+    <div class="card text-white bg-primary mb-3 " style="max-width: 18rem; height:50vh; display: inline-block;">
+        <div class="card-header" style="text-align: center;" ><a href="" style="text-decoration: none; color: black;">My cart</a>  </div>
+        <div class="card-header" style="text-align: center;" ><a href="" style="text-decoration: none; color: black;">My orders</a> </div>
+    </div>
+        
+</div>
+{% endblock %}

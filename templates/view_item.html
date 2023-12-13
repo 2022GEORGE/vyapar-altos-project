@@ -1,0 +1,40 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<div class="container">
+    <div class="container my-5">
+    <div class="card" style="margin-top:50px; padding: 50px;">
+        <div class="container-fliud">
+            <div class="wrapper row">
+                <div class="preview col-md-6">
+                    
+                    <div class="preview-pic tab-content">
+                      <div class="tab-pane active" id="pic-1"><img src="{{data.image.url}}"    style=" height: 300px; aspect-ratio: 1/1"></div>
+                    </div>
+    
+                    
+                </div>
+                <div class="details col-md-6 w-100">
+                    <h3 class="product-title">{{data.name}}</h3>
+                    <div class="rating">
+                        <div class="stars">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <span class="review-no">41 reviews</span>
+                    </div>
+                    <p class="product-description">{{data.description}}</p>
+                    <h4 class="price">current price: <span>&#8377;  {{data.price}}   <s>&#8377;{{data.tprice}}</s></p></span></h4>
+                    <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+                    <div class="action">
+                        <a href="{% url 'add_to_cart' data.id %}" class="btn btn-primary form-control  shadow-0 me-1">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+</div>
+{% endblock %}

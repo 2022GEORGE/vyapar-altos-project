@@ -1,0 +1,22 @@
+{% extends 'formnav.html' %}
+{% block content %}
+<div class="container">
+<form class="text-light" method="post" action="{% url 'do_payment' %}" style="padding:20px;">
+    {% csrf_token %}
+    <h2>Payment</h2>
+<div class="form-group">
+    <label>Card Number</label>
+  <input type="text" name="card"  required pattern="[0-9]{12}" title="12 Digit number only" class="form-control"> 
+</div>
+<div class="form-group">
+    <label>cvv</label>
+  <input type="text"name="cvv" required pattern="[0-9]{3}" title="3 Digit only"  class="form-control" >
+</div>
+<div class="form-group">
+    <label>EXp: Date</label>
+  <input type="date"name="cvv" required pattern="[0-9]{3}" title="3 Digit only"  class="form-control" >
+</div>
+<button type="submit" class="btn btn-primary form-control">PAY</button>
+</form>
+</div>
+{% endblock %}
